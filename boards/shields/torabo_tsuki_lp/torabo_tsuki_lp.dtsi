@@ -1,6 +1,7 @@
 #include <zephyr/dt-bindings/gpio/nordic-nrf-gpio.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "torabo_tsuki_lp_layouts.dtsi"
+#include <input/processors.dtsi>
 
 / {
     chosen {
@@ -123,8 +124,22 @@
         compatible = "zmk,cdc-acm-bootloader-trigger";
     };
 
+    &zip_temp_layer {
+        excluded-positions = <
+            12 // S
+            13 // D
+            14 // F
+            17 // J
+            18 // K
+            19 // L
+        >;
+    };
+
     pointing_listener: pointing_listener {
         compatible = "zmk,input-listener";
+
+        input-processors = <&zip_temp_layer 1 10000>;
+
         status = "disabled";
     };
 
