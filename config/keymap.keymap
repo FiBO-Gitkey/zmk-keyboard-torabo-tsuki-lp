@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
 
 / {
     combos {
@@ -16,12 +17,12 @@
 
         brackets {
             bindings = <&brackets>;
-            key-positions = <22 21>;
+            key-positions = <21 22>;
         };
 
         quotations {
             bindings = <&quotations>;
-            key-positions = <36 35>;
+            key-positions = <35 36>;
         };
     };
 
@@ -39,6 +40,10 @@
             bindings = <&kp SQT &kp RIGHT_ARROW &kp SQT>;
             label = "QUOTATIONS";
         };
+    };
+
+    &mkp_input_listener {
+        input-processors = <&zip_temp_layer 1 10000>;
     };
 
     keymap {
