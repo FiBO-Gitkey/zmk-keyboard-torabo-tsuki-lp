@@ -124,17 +124,6 @@
         compatible = "zmk,cdc-acm-bootloader-trigger";
     };
 
-    &zip_temp_layer {
-        excluded-positions = <
-            27 // S
-            28 // D
-            29 // F
-            32 // J
-            33 // K
-            34 // L
-        >;
-    };
-
     pointing_listener: pointing_listener {
         compatible = "zmk,input-listener";
 
@@ -152,6 +141,17 @@
         io-channels = <&adc 4>; 
     };
 };
+
+&zip_temp_layer {
+        excluded-positions = <
+            27 // S
+            28 // D
+            29 // F
+            32 // J
+            33 // K
+            34 // L
+        >;
+    };
 
 &pinctrl {
     spi0_default: spi0_default {
